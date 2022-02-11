@@ -1,0 +1,40 @@
+
+
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+
+<% if @enroll.errors.any? %>
+
+  <ul> 
+  <% @enroll.errors.full_messages.each do |error_msg| %>
+
+  <li><%= error_msg %></li>
+  <% end %>
+  </ul>
+  <% else %>
+ 
+  <% end %>
+
+<h1>Enroll</h1>
+
+<form action="/students/addenrollx" method="POST">
+  <input type="hidden" name="student_id" value="<%= @student_id %>">
+  <div class="form-group">
+    <label for="email">Select cource:</label>
+    <select  class="form-control" name="cource_id">
+    <option value="">Select cource</option>
+    <%  @cources.each do |cource| %>
+        <option value="<%= cource.id %>"><%= cource.title %></option>
+        <% end %>
+    </select>
+  </div>
+
+  
+  
+ 
+  <button type="submit" class="btn btn-info">Submit</button>
+</form>
+
+</div>
+</div>

@@ -1,0 +1,38 @@
+<div class="row">
+<div class="col-md-12">
+All Students
+<a href="/students/new" class="pull-right">Add new Student</a>
+<hr>
+ <table class="table">
+<thead>
+  <tr>
+    <th>Sr</th>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>DOB</th>
+    <th>Option</th>
+  </tr>
+</thead>
+<tbody>
+<% @students.each_with_index do |student,sr|%>
+    <%  sr = sr+1 %>
+  <tr class="<% if sr%2==0 %> info <% else %> danger <% end %>">
+    <td><%= sr %></td>
+    <td><%= student.fullname %></td>
+    <td><%= student.email %></td>
+    <td><%= student.mobile %></td>
+    <td><%= student.dob %></td>
+    <td>
+    <a class="btn btn-sm btn-info">Edit</a>
+    <a href="/enroll/<%= student.id %>" class="btn btn-sm btn-success">Enroll</a>
+    <%= link_to 'Delete', student_path(student.id),
+    method: :delete,
+    data: { confirm: 'Are You sure?' }, class:"btn btn-sm btn-danger" %>
+    </td>
+  </tr>      
+<% end %>
+</tbody>
+</table>
+</div>
+</div>

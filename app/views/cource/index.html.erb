@@ -1,0 +1,37 @@
+<div class="row">
+<div class="col-md-12">
+All Students
+<a href="/students/new" class="pull-right">Add new Student</a>
+<hr>
+ <table class="table">
+<thead>
+  <tr>
+    <th>Sr</th>
+    <th>Title</th>
+    <th>Duration</th>
+    <th>Fee</th>
+    
+    <th>Option</th>
+  </tr>
+</thead>
+<tbody>
+<% @cources.each_with_index do |cource,sr|%>
+    <%  sr = sr+1 %>
+  <tr class="<% if sr%2==0 %> info <% else %> danger <% end %>">
+    <td><%= sr %></td>
+    <td><%= cource.title %></td>
+    <td><%= cource.duration %></td>
+    <td><%= cource.fee %></td>
+    <td>
+    <a class="btn btn-sm btn-info" href="/cource/<%= cource.id %>/edit">Edit</a>
+    <a class="btn btn-sm btn-info" href="/cource/<%= cource.id %>" data-method="delete">DELETE</a>
+    <%= link_to 'Delete', cource_index_path(cource.id),
+    method: :delete,
+    data: { confirm: 'Are You sure?' }, class:"btn btn-sm btn-danger" %>
+    </td>
+  </tr>      
+<% end %>
+</tbody>
+</table>
+</div>
+</div>

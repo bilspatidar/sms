@@ -1,0 +1,47 @@
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+
+<% if @student.errors.any? %>
+
+  <ul> 
+  <% @student.errors.full_messages.each do |error_msg| %>
+
+  <li><%= error_msg %></li>
+  <% end %>
+  </ul>
+  <% else %>
+ 
+  <% end %>
+
+<h1>Create new student</h1>
+
+<form action="/students" method="POST">
+
+  <div class="form-group">
+    <label for="email">Full name:</label>
+    <input type="text" class="form-control" name="fullname">
+  </div>
+
+  <div class="form-group">
+    <label for="email">DOB:</label>
+    <input type="date" class="form-control" name="dob">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    
+    <input type="email" class="form-control" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Mobile:</label>
+    <input type="text" class="form-control" name="mobile">
+  </div>
+  
+ 
+  <button type="submit" class="btn btn-info">Submit</button>
+</form>
+
+</div>
+</div>
