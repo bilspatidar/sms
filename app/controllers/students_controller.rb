@@ -20,9 +20,10 @@ def create
         
     end
 end
+
 def destroy
-      @student = Student.find_by(params[:id])
-      @student.destroy
+    @student = Student.find_by(params[:id])
+    @student.destroy
     redirect_to students_path
 end
 
