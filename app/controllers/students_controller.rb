@@ -15,9 +15,7 @@ def create
     if @student.save
         redirect_to students_path
     else
-       
         render :new, status: :unprocessable_entity 
-        
     end
 end
 
