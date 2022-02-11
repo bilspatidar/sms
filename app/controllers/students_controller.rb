@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
 
 def index
     #current for get all of user we dnt use model we user table
-@students = current_user.students.all    
+  @students = current_user.students.all    
 end
 
 def new 
@@ -34,12 +34,13 @@ end
 
 def addenroll
 end
+
 private
 def student_params
     params.permit(:fullname,:email,:dob,:mobile)
 end
 
 def enroll_param
-params.permit(:student_id,:cource_id)
+  params.permit(:student_id,:cource_id)
 end
 end
